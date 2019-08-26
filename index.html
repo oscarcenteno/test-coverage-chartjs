@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1>Stacked bar chart</h1>
+
+  <canvas id="doughnut-chart" width="800" height="450"></canvas>
+
+  <script>
+    new Chart(document.getElementById("doughnut-chart"), {
+      type: 'bar',
+      data: {
+        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+        datasets: [
+          {
+            label: "Population (millions)",
+            backgroundColor: '#ccc',
+            data: [2478, 5267, 734, 784, 433]
+          },
+          {
+            label: "Population (million1s)",
+            backgroundColor: '#a00',
+            data: [2478, 5267, 734, 784, 433]
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Predicted world population (millions) in 2050'
+        },
+        responsive: true,
+        scales: {
+          xAxes: [{
+            stacked: true,
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
