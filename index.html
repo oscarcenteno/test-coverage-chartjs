@@ -12,7 +12,14 @@
 <body>
   <h1>Stacked bar chart</h1>
 
-  <canvas id="doughnut-chart" width="800" height="450"></canvas>
+  <table>
+    <tr>
+      <td><canvas id="doughnut-chart"></canvas></td>
+      <td style="padding:30px"><canvas id="pie-chart2"></canvas></td>
+      <td><canvas id="pie-chart"></canvas></td>
+    </tr>
+  </table>
+
 
   <script>
     new Chart(document.getElementById("doughnut-chart"), {
@@ -49,6 +56,31 @@
       }
     });
   </script>
+
+
+
+  <script>
+    var options = {
+      type: 'pie',
+      data: {
+        labels: ["Covered", "Not covered", "Out of scope"],
+        datasets: [{
+          label: "Population (millions)",
+          backgroundColor: ["#3cba9f", "#c45850", "#e8c3b9"],
+          data: [830, 12, 9]
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Predicted world population (millions) in 2050'
+        }
+      }
+    };
+
+    new Chart(document.getElementById("pie-chart"), options);
+    new Chart(document.getElementById("pie-chart2"), options);</script>
+
 
 </body>
 
